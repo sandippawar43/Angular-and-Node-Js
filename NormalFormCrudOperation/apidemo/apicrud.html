@@ -1,0 +1,42 @@
+<html>
+    <head>Node CRUD OPERATION</head>
+    <h1>Node CRUD OPERATION</h1>
+    <body>
+ 
+       <table >
+       <tr><td>Name</td><td> <input type="text"    [(ngModel)]="e.name"></td></tr>
+       <tr><td>Address</td><td> <input type="text"   [(ngModel)]="e.address"></td><tr>
+       <tr><td>Mobile</td> <td><input type="text"   [(ngModel)]="e.mobile" ></td><tr>
+       <tr><td>Salary</td> <td><input type="text"   [(ngModel)]="e.salary"></td><tr>
+       </table>
+       <br>
+       <input type="submit" name="submit"  (click)="add(e)"> 
+       <br><br>
+       <input type="submit" name="update"value="Update" (click)="update(e)">      
+ 
+    </body>
+</html>
+<br>
+
+<table border="1">
+    <tr>
+      <th>srno</th>
+      <th>name</th>
+      <th>address</th>
+      <th>mobile</th>
+      <th>salary</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <tr *ngFor = "let u of msg">
+      <td>{{u.srno}}</td>
+      <td>{{u.name}}</td>
+      <td>{{u.address}}</td>
+      <td>{{u.mobile}}</td>
+      <td>{{u.salary}}</td>
+      <td><input type="submit" value="update" (click)="View(u)" ></td>
+      <td><input type="submit" value="Delete" (click)="delete(u.srno)"></td>
+    </tr>
+    
+  </table>
