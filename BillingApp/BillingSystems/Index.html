@@ -1,0 +1,70 @@
+ <table>
+     <tr>
+         <td>Customer</td>
+         <td><select [(ngModel)]="customer">
+             <option *ngFor="let c of customers" value="{{c.CustId}}">{{c.CName}}</option>
+         </select></td>
+
+         <td>Bill Date</td>
+         <td><input type="date" [(ngModel)]="billdate"></td>
+         <td>Tax</td>
+         <td><input type="text" [(ngModel)]="tax"></td>
+
+        </tr>
+ 
+    </table>
+    <hr/>
+<table>
+    <tr>
+        <td>
+            <label>Item</label>
+            <br/>
+            <select [(ngModel)]="item" (change)="fetchRate(item)">
+                <option *ngFor="let i of items" value="{{i.ItemId}}">{{i.ItemName}}</option>
+            </select>
+        </td>
+        <td>
+            <label>Rate</label>
+            <br/>
+           <input type="text" [(ngModel)]="rate">
+        </td>
+        <td>
+            <label>Quantity</label>
+            <br/>
+           <input type="text" [(ngModel)]="qty">
+        </td>
+        <td>
+             
+            <br/>
+           <input type="button" value="Add" (click)="Add(item,rate,qty)">
+        </td>
+    </tr>
+</table>
+<hr/>
+<table border="1">
+<thead>
+    <tr>
+        <th>Item</th>
+        <th>Rate</th>
+        <th>Quantity</th>
+        <th>Total</th>
+
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let d of itemdata">
+<td>{{d.ItemName}}</td>
+<td>{{d.Quantity}}</td>
+<td>{{d.Rate}}</td>
+<td>{{d.Total}}</td>
+    </tr>
+</tbody>
+<tfoot>
+    <tr>
+        <td colspan="3">Total =</td>
+        <td>{{finaltotal}}</td>
+    </tr>
+</tfoot>
+</table>
+<hr/>
+<input type="button" value="Submit" (click)="Submit(customer,billdate,tax)">

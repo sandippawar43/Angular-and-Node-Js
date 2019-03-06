@@ -1,0 +1,66 @@
+<h1>Billing System</h1>
+<table border="1px solid grey">
+        <tr><td>Customer Name</td><td></td><td>Bill Date</td><td></td><td></td></tr>
+    <tr>            
+        <td>
+            <select [(ngModel)]="Customer" (change)="CustomerSelection(Customer)" >
+                <option *ngFor="let c of customers" value="{{c.CustId}}" text="{{c.CName}}">
+                </option>
+            </select>
+            </td>
+            <td></td><td>
+                    <input type='date' [(ngModel)]='date'/>
+            </td><td></td><td></td></tr>
+    <tr>
+        <td>           
+    </td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>Item</td><td>Rate</td><td>Quantity</td><td>Total</td><td></td></tr>
+    <tr><td>
+        <select [(ngModel)]="item" (change)="ItemSelection(item)" >
+            <option *ngFor="let c of items" value="{{c.ItemId}}" text="{{c.ItemName}}">
+            </option>
+        </select>
+    </td>
+    <td><input type="text" [(ngModel)]="Rate" pattern="[0-9]*" maxlength="3" title="Rate"> </td><td><input type="text"/></td><td><input type="text"/></td><td><input type="button" value="Add"></td></tr>
+</table>
+
+<table border="1px solid grey">
+    <tr>        
+        <th>
+            srno        
+        </th>
+        <th>
+            Item name        
+        </th>
+        <th>
+            Rate        
+        </th>
+        <th>
+            Quantity        
+        </th>
+        <th>
+            Total        
+        </th>
+        <th>                
+        </th>
+    </tr>
+    <tr *ngFor="let b of BillList">
+        <td>
+           {{b.srno}}        
+        </td>
+        <td>
+            {{b.ItemName}}        
+        </td>
+        <td>
+            {{b.Rate}}        
+        </td>
+        <td>
+            {{b.Quantity}}        
+        </td>
+        <td>
+            {{b.Total}}        
+        </td>
+        <td>                
+        </td>
+    </tr>
+</table>
